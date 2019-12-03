@@ -5,6 +5,7 @@ class NormalizedWebhookData(object):
 
   def __init__(self, webhook):
 
+    self.raw_webhook = webhook
     self.provider = None
     self.id = None
     self.date = None
