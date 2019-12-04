@@ -28,7 +28,7 @@ class NormalizedWebhookData(object):
       self.id = webhook.data['data']['object']['customer']
       self.date = datetime.fromtimestamp(webhook.data['created'])
       self.raw_type = webhook.data['type']
-      self.user_name = webhook.data['data']['object']['source']['name']
+      self.user_name = webhook.data['data']['object']['source']['name'] if 'source' in webhook.data['data']['object'] else webhook.data['data']['object']['customer_email']
   
   def meets_criteria(self, criteria):
     conditions = criteria.split('&')
