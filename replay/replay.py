@@ -55,7 +55,7 @@ def main(cmd, argv):
         origCount = len(list(webhooksNormalized))
         webhooksNormalized = list(filter(lambda x: x.meets_criteria(args.filter), webhooksNormalized))
         # adjust webhooks if going to do replay..
-        webhooks = list(filter(lambda x: x.raw_webhook, webhooksNormalized))
+        webhooks = list(map(lambda x: x.raw_webhook, webhooksNormalized))
         print(f'\nFiltered down to {len(webhooksNormalized)}/{origCount} hooks..')
     
     if args.ls:
